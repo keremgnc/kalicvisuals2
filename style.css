@@ -1,0 +1,79 @@
+/* Genel */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Menü */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+/* Bölümler */
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+section h2, section p {
+  margin: 15px 0;
+}
+
+/* Arka plan resimleri */
+#home {
+  background: url("kalicvisualslogo.png") no-repeat center center/cover;
+}
+#about {
+  background: url("mermi.jpg") no-repeat center center/cover;
+}
+#portfolio {
+  background: url("sucuk.jpg") no-repeat center center/cover;
+}
+#services {
+  background: url("havali.jpg") no-repeat center center/cover;
+}
+#contact {
+  background: url("uzay.jpg") no-repeat center center/cover;
+}
+
+/* Yazıları okunaklı yapmak için overlay */
+.overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  border-radius: 10px;
+}
