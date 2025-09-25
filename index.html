@@ -20,12 +20,7 @@
   </nav>
 
   <!-- Bölümler -->
-  <section id="home" class="hero">
-    <div class="overlay">
-      <h1>Kalicvisuals</h1>
-      <p>Fotoğrafçılık Sanatı</p>
-    </div>
-  </section>
+  <section id="home" class="hero"></section>
 
   <section id="about">
     <div class="overlay">
@@ -38,6 +33,15 @@
     <div class="overlay">
       <h2>Portfolyo</h2>
       <p>Burada çalışmalarım yer alacak.</p>
+      
+      <div class="gallery">
+        <img src="parfum.jpg" alt="Ürün çekimi">
+        <img src="event.jpg" alt="Organizasyon çekimi">
+        <img src="model.jpg" alt="Model çekimi">
+        <img src="dugun.jpg" alt="Düğün çekimi">
+        <img src="emlak.jpg" alt="Drone çekimi">
+        <!-- Devamı için yeni <img> ekleyebilirsin -->
+      </div>
     </div>
   </section>
 
@@ -54,6 +58,16 @@
       <p>Mail: info@kalicvisuals.com</p>
     </div>
   </section>
+
+  <!-- Modal (galeri için) -->
+<div id="modal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content-wrapper">
+    <img class="modal-content" id="modal-img">
+  </div>
+  <a class="prev">&#10094;</a>
+  <a class="next">&#10095;</a>
+</div>
 
   <script src="script.js"></script>
 </body>
