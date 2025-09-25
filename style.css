@@ -1,4 +1,4 @@
-/* Genel */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   background: #000;
   color: #fff;
   overflow-x: hidden;
@@ -28,143 +29,254 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
   color: white;
   text-decoration: none;
   font-size: 18px;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
   color: #ffd700;
+  outline: none;
 }
 
-/* Bölümler */
 section {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
   position: relative;
-  padding: 0 20px;
 }
 
-section h2, section p {
-  margin: 15px 0;
-}
-
-/* Arka plan resimleri */
-#home, #about, #portfolio, #services, #contact {
+/* Ana sayfa, hakkımda, hizmetler, iletişim arka planları */
+#home, #about, #services, #contact {
   background: url("logo.png") no-repeat center center/cover;
 }
 
-/* Overlay yazı alanı */
+/* Overlay (Siyah hafif şeffaf kutular) */
 .overlay {
-  background: rgba(0,0,0,0.5);
-  padding: 40px;
-  border-radius: 10px;
-  max-width: 900px;
-  width: 100%;
+  background: rgba(0,0,0,0.6);
+  padding: 50px 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 90%;
+  /* Tam ortala */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* GALERİ STİLİ */
-.gallery {
+/* İletişim kısmındaki overlay biraz daha büyük */
+.contact-overlay {
+  padding: 70px 50px;
+}
+
+/* Metin içerikleri */
+.text-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+section h2 {
+  font-weight: 500;
+  margin: 15px 0;
+}
+
+section p {
+  font-weight: 300;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+/* Hizmetler listesi */
+.service-list {
+  list-style: none;
+  padding: 0;
   margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  display: inline-block;
+}
+
+.service-list li {
+  font-weight: 300;
+  font-size: 18px;
+  margin: 12px auto;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  user-select: none;
+  outline: none;
+  max-width: 320px;
+}
+
+.service-list li:hover,
+.service-list li:focus {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffd700;
+  outline: none;
+}
+
+/* Galeri */
+.gallery {
+  column-count: 4;
+  column-gap: 12px;
+  padding: 20px;
+  width: 100%;
 }
 
 .gallery img {
-  width: 200px;
-  height: auto;
-  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  display: inline-block;
 }
 
-.gallery img:hover {
+.gallery img:hover,
+.gallery img:focus {
   transform: scale(1.05);
+  outline: none;
 }
 
-/* MODAL */
-/* Modal genel */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px); /* ✅ BLUR efekti */
-  background-color: rgba(0, 0, 0, 0.3); /* hafif koyuluk */
   overflow: hidden;
-  padding: 0;
-}
-
-/* Açılış efekti */
-.modal.show .modal-content-wrapper {
-  opacity: 1;
-  transform: scale(1);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content-wrapper {
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: scale(0.95);
+  align-items: center;
 }
 
-/* Görsel tam ekran kaplar */
 .modal-content {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
   transition: transform 0.3s ease;
   cursor: zoom-in;
-  will-change: transform;
+  border-radius: 8px;
 }
 
-/* Zoom modundayken cursor değişir */
 .modal-content.zoomed {
   cursor: zoom-out;
-}
-
-/* Diğer öğeler */
-.modal-caption {
-  display: none; /* İsteğe bağlı kaldırılabilir */
 }
 
 .close, .prev, .next {
   position: absolute;
   color: white;
   font-size: 40px;
-  cursor: pointer;
   z-index: 10000;
+  user-select: none;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.close {
-  top: 20px;
-  right: 30px;
+.close:hover, .prev:hover, .next:hover,
+.close:focus, .prev:focus, .next:focus {
+  background: rgba(0,0,0,0.6);
+  outline: none;
 }
 
-.prev {
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
+.close { top: 20px; right: 30px; }
+.prev  { top: 50%; left: 20px; transform: translateY(-50%); }
+.next  { top: 50%; right: 20px; transform: translateY(-50%); }
+
+/* İletişim linkleri */
+.contact-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
-.next {
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+.contact-link:hover,
+.contact-link:focus {
+  border-color: #ffd700;
+  outline: none;
+  color: white; /* Mora dönmesin */
 }
 
+/* Responsive */
+@media (max-width: 1200px) {
+  .gallery {
+    column-count: 3;
+  }
+}
 
+@media (max-width: 768px) {
+  .gallery {
+    column-count: 2;
+    padding: 15px;
+  }
+
+  .close, .prev, .next {
+    font-size: 30px;
+  }
+
+  .overlay {
+    max-width: 90%;
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    column-count: 1;
+    padding: 10px;
+  }
+
+  .close, .prev, .next {
+    font-size: 24px;
+  }
+
+  .overlay {
+    padding: 35px 25px;
+  }
+}
+.gallery video.gallery-video {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  display: inline-block;
+  background: #000;
+}
